@@ -1,5 +1,7 @@
 
+
 package EstudodeCaso2;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -15,11 +17,11 @@ public class Leiloamento {
     public void exibirMenu() {
         int opcao;
         do {
-            System.out.println("========= Sistema de Leilões =========");
-            System.out.println("1. Adicionar Lote");
-            System.out.println("2. Realizar Lance");
-            System.out.println("3. Mostrar Lotes");
-            System.out.println("4. Fechar Leilão");
+            System.out.println("========= Leilão do will =========");
+            System.out.println("1. Adicionar um Lote");
+            System.out.println("2. Fazer um Lance");
+            System.out.println("3. Mostrar os Lotes");
+            System.out.println("4. Fechar Leilão do Will");
             System.out.println("5. Mostrar Lotes Não Vendidos");
             System.out.println("6. Remover Lote");
             System.out.println("0. Sair");
@@ -56,20 +58,20 @@ public class Leiloamento {
     }
 
     private void adicionarLote() {
-        scanner.nextLine(); // Limpar o buffer do scanner
+        scanner.nextLine();
         System.out.print("Descrição do lote: ");
         String descricao = scanner.nextLine();
         leilao.adicionaLote(descricao);
-        System.out.println("Lote adicionado com sucesso!");
+        System.out.println("Lote adicionado! ");
     }
 
     private void realizarLance() {
         System.out.print("Número do lote: ");
         int numero = scanner.nextInt();
-        scanner.nextLine(); // Limpar o buffer do scanner
+        scanner.nextLine(); 
         System.out.print("Nome do licitante: ");
         String nomeLicitante = scanner.nextLine();
-        System.out.print("Valor do lance: ");
+        System.out.print("Digite o valor do lance: ");
         double valorLance = scanner.nextDouble();
 
         Lote lote = leilao.getLote(numero);
@@ -90,24 +92,26 @@ public class Leiloamento {
         leilao.close();
         System.out.println("Leilão encerrado. Detalhes dos lotes:");
         leilao.mostraLotes();
+        System.out.println(" (/•_•)/ ");
+        System.exit(1);
     }
 
     private void mostrarLotesNaoVendidos() {
-        System.out.println("===== LOTES NÃO VENDIDOS =====");
+        System.out.println("===== Lotes não vendidos =====");
         ArrayList<Lote> lotesNaoVendidos = leilao.getNaoVendidos();
         if (lotesNaoVendidos.isEmpty()) {
-System.out.println("Não há lotes não vendidos.");
-} else {
-for (Lote lote : lotesNaoVendidos) {
-System.out.println("Lote " + lote.getNumero() + ": " + lote.getDescricao());
-}
-}
-System.out.println("=============================");
-}
+    System.out.println("Não há lotes não vendidos.");
+    } else {
+    for (Lote lote : lotesNaoVendidos) {
+    System.out.println("Lote " + lote.getNumero() + ": " + lote.getDescricao());
+    }
+    }
+    System.out.println("=============================");
+    }
     private void removerLote() {
     System.out.print("Número do lote a ser removido: ");
     int numero = scanner.nextInt();
-    scanner.nextLine(); // Limpar o buffer do scanner
+    scanner.nextLine(); 
 
     Lote loteRemovido = leilao.removeLote(numero);
     if (loteRemovido != null) {
