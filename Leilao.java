@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 
-public class Leilao {
+   public class Leilao {
     private ArrayList<Lote> lotes;
     private int numeroProxLote;
     public Leilao() {
@@ -59,6 +59,7 @@ public class Leilao {
     }
 
     return resultados.toString();
+    
 }
     
     
@@ -87,3 +88,4 @@ public class Leilao {
     return null;
 }
 }
+
