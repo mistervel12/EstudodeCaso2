@@ -21,11 +21,11 @@ public class Leiloamento {
             System.out.println("1. Adicionar um Lote");
             System.out.println("2. Fazer um Lance");
             System.out.println("3. Mostrar os Lotes");
-            System.out.println("4. Fechar Leilão do Will");
-            System.out.println("5. Mostrar Lotes Não Vendidos");
-            System.out.println("6. Remover Lote");
+            System.out.println("4. Fechar o Leilão do Will");
+            System.out.println("5. Mostrar os Lotes Não Vendidos");
+            System.out.println("6. Remover um Lote");
             System.out.println("0. Sair");
-            System.out.print("Escolha uma opção: ");
+            System.out.print("Escolha uma das opções : ");
             opcao = scanner.nextInt();
 
             switch (opcao) {
@@ -62,14 +62,14 @@ public class Leiloamento {
         System.out.print("Descrição do lote: ");
         String descricao = scanner.nextLine();
         leilao.adicionaLote(descricao);
-        System.out.println("Lote adicionado! ");
+        System.out.println("Lote adicionado com sucesso! ");
     }
 
     private void realizarLance() {
-        System.out.print("Número do lote: ");
+        System.out.print("Digite o número do lote no qual deseja fazer um lance: ");
         int numero = scanner.nextInt();
         scanner.nextLine(); 
-        System.out.print("Nome do licitante: ");
+        System.out.print("Digite o nome do licitante: ");
         String nomeLicitante = scanner.nextLine();
         System.out.print("Digite o valor do lance: ");
         double valorLance = scanner.nextDouble();
@@ -83,7 +83,7 @@ public class Leiloamento {
     }
 
     private void mostrarLotes() {
-        System.out.println("===== LOTES =====");
+        System.out.println("------ LOTES ------");
         leilao.mostraLotes();
         System.out.println("=================");
     }
@@ -92,12 +92,11 @@ public class Leiloamento {
         leilao.close();
         System.out.println("Leilão encerrado. Detalhes dos lotes:");
         leilao.mostraLotes();
-        System.out.println(" (/•_•)/ ");
-        System.exit(1);
+        
     }
 
     private void mostrarLotesNaoVendidos() {
-        System.out.println("===== Lotes não vendidos =====");
+        System.out.println("----- Lotes não vendidos -----");
         ArrayList<Lote> lotesNaoVendidos = leilao.getNaoVendidos();
         if (lotesNaoVendidos.isEmpty()) {
     System.out.println("Não há lotes não vendidos.");
@@ -109,7 +108,7 @@ public class Leiloamento {
     System.out.println("=============================");
     }
     private void removerLote() {
-    System.out.print("Número do lote a ser removido: ");
+    System.out.print("Digite o número do lote que deseja remover: ");
     int numero = scanner.nextInt();
     scanner.nextLine(); 
 
